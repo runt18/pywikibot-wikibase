@@ -34,7 +34,7 @@ class PropertyPage(WikibasePage, Property):
         """
         if not title.startswith('P'):
             raise ValueError(
-                u"'%s' is not an property page title" % title)
+                u"'{0!s}' is not an property page title".format(title))
         self.id = title
         Property.__init__(self, self.id, datatype)
 

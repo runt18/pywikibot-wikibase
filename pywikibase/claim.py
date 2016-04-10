@@ -217,8 +217,7 @@ class Claim(Property):
         """
         value_class = self.types[self.type]
         if not isinstance(value, value_class):
-            raise ValueError("%s is not type %s."
-                             % (value, value_class))
+            raise ValueError("{0!s} is not type {1!s}.".format(value, value_class))
         self.target = value
 
     def getTarget(self):
@@ -405,8 +404,7 @@ class Claim(Property):
         elif self.type in ('globe-coordinate', 'time', 'quantity'):
             value = self.getTarget().toWikibase()
         else:
-            raise NotImplementedError('%s datatype is not supported yet.'
-                                      % self.type)
+            raise NotImplementedError('{0!s} datatype is not supported yet.'.format(self.type))
         return value
 
     def _formatDataValue(self):
