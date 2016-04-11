@@ -90,7 +90,7 @@ class WbTime(object):
             elif precision in self.PRECISION:
                 self.precision = self.PRECISION[precision]
             else:
-                raise ValueError('Invalid precision: "%s"' % precision)
+                raise ValueError('Invalid precision: "{0!s}"'.format(precision))
 
     @classmethod
     def fromTimestr(cls, datetimestr, precision=14, before=0, after=0,
@@ -98,7 +98,7 @@ class WbTime(object):
         match = re.match(r'([-+]?\d+)-(\d+)-(\d+)T(\d+):(\d+):(\d+)Z',
                          datetimestr)
         if not match:
-            raise ValueError(u"Invalid format: '%s'" % datetimestr)
+            raise ValueError(u"Invalid format: '{0!s}'".format(datetimestr))
         t = match.groups()
         return cls(long(t[0]), int(t[1]), int(t[2]),
                    int(t[3]), int(t[4]), int(t[5]),

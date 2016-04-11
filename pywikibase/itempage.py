@@ -37,8 +37,7 @@ class ItemPage(WikibasePage):
         # Validate the title is 'Q' and a positive integer.
         if title and not re.match(r'^Q[1-9]\d*$', title):
             raise RuntimeError(
-                u"'%s' is not a valid item page title"
-                % title)
+                u"'{0!s}' is not a valid item page title".format(title))
         self.id = title
 
     def get(self, *args, **kwargs):

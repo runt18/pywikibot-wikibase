@@ -61,9 +61,9 @@ class Coordinate(object):
         self.site = site
 
     def __repr__(self):
-        string = 'Coordinate(%s, %s' % (self.lat, self.lon)
+        string = 'Coordinate({0!s}, {1!s}'.format(self.lat, self.lon)
         if self.globe != 'earth':
-            string += ', globe="%s"' % self.globe
+            string += ', globe="{0!s}"'.format(self.globe)
         string += ')'
         return string
 
@@ -84,8 +84,7 @@ class Coordinate(object):
         """
         if not self._entity and self.globe not in self.site.globes():
             raise CoordinateGlobeUnknownException(
-                u"%s is not supported in Wikibase yet."
-                % self.globe)
+                u"{0!s} is not supported in Wikibase yet.".format(self.globe))
         return {'latitude': self.lat,
                 'longitude': self.lon,
                 'altitude': self.alt,
